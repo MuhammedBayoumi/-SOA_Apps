@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.example.org"
+            targetNamespace="http://www.example.org" elementFormDefault="qualified"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+  <xsd:element name="AddressResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="items">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element type="xsd:long" name="SupplierAddressId"/>
+              <xsd:element type="xsd:string" name="AddressName"/>
+              <xsd:element type="xsd:string" name="CountryCode"/>
+              <xsd:element type="xsd:string" name="Country"/>
+              <xsd:element type="xsd:string" name="AddressLine1"/>
+              <xsd:element type="xsd:string" name="AddressLine2"/>
+              <xsd:element type="xsd:string" name="AddressLine3"/>
+              <xsd:element type="xsd:string" name="AddressLine4"/>
+              <xsd:element type="xsd:string" name="City"/>
+              <xsd:element type="xsd:string" name="State"/>
+              <xsd:element type="xsd:short" name="PostalCode"/>
+              <xsd:element type="xsd:string" name="PostalCodeExtension"/>
+              <xsd:element type="xsd:string" name="Province"/>
+              <xsd:element type="xsd:string" name="County"/>
+              <xsd:element type="xsd:string" name="Building"/>
+              <xsd:element type="xsd:string" name="FloorNumber"/>
+              <xsd:element type="xsd:string" name="PhoneticAddress"/>
+              <xsd:element type="xsd:string" name="LanguageCode"/>
+              <xsd:element type="xsd:string" name="Language"/>
+              <xsd:element type="xsd:string" name="Addressee"/>
+              <xsd:element type="xsd:string" name="GlobalLocationNumber"/>
+              <xsd:element type="xsd:string" name="AdditionalAddressAttribute1"/>
+              <xsd:element type="xsd:string" name="AdditionalAddressAttribute2"/>
+              <xsd:element type="xsd:string" name="AdditionalAddressAttribute3"/>
+              <xsd:element type="xsd:string" name="AdditionalAddressAttribute4"/>
+              <xsd:element type="xsd:string" name="AdditionalAddressAttribute5"/>
+              <xsd:element type="xsd:string" name="AddressPurposeOrderingFlag"/>
+              <xsd:element type="xsd:string" name="AddressPurposeRemitToFlag"/>
+              <xsd:element type="xsd:string" name="AddressPurposeRFQOrBiddingFlag"/>
+              <xsd:element type="xsd:string" name="PhoneCountryCode"/>
+              <xsd:element type="xsd:string" name="PhoneAreaCode"/>
+              <xsd:element type="xsd:string" name="PhoneNumber"/>
+              <xsd:element type="xsd:string" name="PhoneExtension"/>
+              <xsd:element type="xsd:string" name="FaxCountryCode"/>
+              <xsd:element type="xsd:string" name="FaxAreaCode"/>
+              <xsd:element type="xsd:string" name="FaxNumber"/>
+              <xsd:element type="xsd:string" name="Email"/>
+              <xsd:element type="xsd:date" name="InactiveDate"/>
+              <xsd:element type="xsd:string" name="Status"/>
+              <xsd:element type="xsd:dateTime" name="CreationDate"/>
+              <xsd:element type="xsd:string" name="CreatedBy"/>
+              <xsd:element type="xsd:dateTime" name="LastUpdateDate"/>
+              <xsd:element type="xsd:string" name="LastUpdatedBy"/>
+              <xsd:element name="links" maxOccurs="unbounded" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element type="xsd:string" name="rel"/>
+                    <xsd:element type="xsd:string" name="href"/>
+                    <xsd:element type="xsd:string" name="name"/>
+                    <xsd:element type="xsd:string" name="kind"/>
+                    <xsd:element name="properties" minOccurs="0">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element type="xsd:string" name="changeIndicator"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element type="xsd:byte" name="count"/>
+        <xsd:element type="xsd:string" name="hasMore"/>
+        <xsd:element type="xsd:byte" name="limit"/>
+        <xsd:element type="xsd:byte" name="offset"/>
+        <xsd:element name="links">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element type="xsd:string" name="rel"/>
+              <xsd:element type="xsd:string" name="href"/>
+              <xsd:element type="xsd:string" name="name"/>
+              <xsd:element type="xsd:string" name="kind"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

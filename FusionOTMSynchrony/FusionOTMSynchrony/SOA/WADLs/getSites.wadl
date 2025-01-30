@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="getSites">RestReference</doc>
+   <resources>
+      <resource path="/fscmRestApi/resources/11.13.18.05/suppliers/{supplierId}/child/sites">
+         <method name="GET" soa:name="siteMethod">
+            <request>
+               <param name="supplierId" style="template" type="xsd:string"/>
+            </request>
+            <response>
+               <representation mediaType="application/xml"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response/>
+         </method>
+      </resource>
+   </resources>
+</application>

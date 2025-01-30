@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.Sites.org"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8"
+            targetNamespace="http://www.Sites.org" elementFormDefault="qualified">
+  <xsd:element name="SiteResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="items">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element type="xsd:long" name="SupplierSiteId"/>
+              <xsd:element type="xsd:string" name="SupplierSite"/>
+              <xsd:element type="xsd:long" name="ProcurementBUId"/>
+              <xsd:element type="xsd:string" name="ProcurementBU"/>
+              <xsd:element type="xsd:long" name="SupplierAddressId"/>
+              <xsd:element type="xsd:string" name="SupplierAddressName"/>
+              <xsd:element type="xsd:string" name="InactiveDate"/>
+              <xsd:element type="xsd:string" name="Status"/>
+              <xsd:element type="xsd:string" name="SitePurposeSourcingOnlyFlag"/>
+              <xsd:element type="xsd:string" name="SitePurposePurchasingFlag"/>
+              <xsd:element type="xsd:string" name="SitePurposeProcurementCardFlag"/>
+              <xsd:element type="xsd:string" name="SitePurposePayFlag"/>
+              <xsd:element type="xsd:string" name="SitePurposePrimaryPayFlag"/>
+              <xsd:element type="xsd:string" name="IncomeTaxReportingSiteFlag"/>
+              <xsd:element type="xsd:string" name="AlternateSiteName"/>
+              <xsd:element type="xsd:string" name="CustomerNumber"/>
+              <xsd:element type="xsd:string" name="B2BCommunicationMethodCode"/>
+              <xsd:element type="xsd:string" name="B2BCommunicationMethod"/>
+              <xsd:element type="xsd:string" name="B2BSupplierSiteCode"/>
+              <xsd:element type="xsd:string" name="CommunicationMethodCode"/>
+              <xsd:element type="xsd:string" name="CommunicationMethod"/>
+              <xsd:element type="xsd:string" name="Email"/>
+              <xsd:element type="xsd:string" name="FaxCountryCode"/>
+              <xsd:element type="xsd:string" name="FaxAreaCode"/>
+              <xsd:element type="xsd:string" name="FaxNumber"/>
+              <xsd:element type="xsd:string" name="HoldAllNewPurchasingDocumentsFlag"/>
+              <xsd:element type="xsd:string" name="PurchasingHoldReason"/>
+              <xsd:element type="xsd:string" name="AllNewPurchasingDocumentsHoldDate"/>
+              <xsd:element type="xsd:string" name="AllNewPurchasingDocumentsHoldBy"/>
+              <xsd:element type="xsd:string" name="RequiredAcknowledgmentCode"/>
+              <xsd:element type="xsd:string" name="RequiredAcknowledgment"/>
+              <xsd:element type="xsd:string" name="AcknowledgmentWithinDays"/>
+              <xsd:element type="xsd:string" name="CarrierId"/>
+              <xsd:element type="xsd:string" name="Carrier"/>
+              <xsd:element type="xsd:string" name="ModeOfTransportCode"/>
+              <xsd:element type="xsd:string" name="ModeOfTransport"/>
+              <xsd:element type="xsd:string" name="ServiceLevelCode"/>
+              <xsd:element type="xsd:string" name="ServiceLevel"/>
+              <xsd:element type="xsd:string" name="FreightTermsCode"/>
+              <xsd:element type="xsd:string" name="FreightTerms"/>
+              <xsd:element type="xsd:string" name="PayOnReceiptFlag"/>
+              <xsd:element type="xsd:string" name="FOBCode"/>
+              <xsd:element type="xsd:string" name="FOB"/>
+              <xsd:element type="xsd:string" name="CountryOfOriginCode"/>
+              <xsd:element type="xsd:string" name="CountryOfOrigin"/>
+              <xsd:element type="xsd:string" name="BuyerManagedTransportationCode"/>
+              <xsd:element type="xsd:string" name="BuyerManagedTransportation"/>
+              <xsd:element type="xsd:string" name="PayOnUseFlag"/>
+              <xsd:element type="xsd:string" name="AgingOnsetPointCode"/>
+              <xsd:element type="xsd:string" name="AgingOnsetPoint"/>
+              <xsd:element type="xsd:string" name="AgingPeriodDays"/>
+              <xsd:element type="xsd:string" name="ConsumptionAdviceFrequencyCode"/>
+              <xsd:element type="xsd:string" name="ConsumptionAdviceFrequency"/>
+              <xsd:element type="xsd:string" name="ConsumptionAdviceSummaryCode"/>
+              <xsd:element type="xsd:string" name="ConsumptionAdviceSummary"/>
+              <xsd:element type="xsd:string" name="AlternatePaySiteId"/>
+              <xsd:element type="xsd:string" name="AlternatePaySite"/>
+              <xsd:element type="xsd:string" name="InvoiceSummaryLevelCode"/>
+              <xsd:element type="xsd:string" name="InvoiceSummaryLevel"/>
+              <xsd:element type="xsd:string" name="GaplessInvoiceNumberingFlag"/>
+              <xsd:element type="xsd:string" name="SellingCompanyIdentifier"/>
+              <xsd:element type="xsd:string" name="CreateDebitMemoFromReturnFlag"/>
+              <xsd:element type="xsd:string" name="ShipToExceptionCode"/>
+              <xsd:element type="xsd:string" name="ShipToException"/>
+              <xsd:element type="xsd:string" name="ReceiptRoutingId"/>
+              <xsd:element type="xsd:string" name="ReceiptRouting"/>
+              <xsd:element type="xsd:string" name="OverReceiptTolerance"/>
+              <xsd:element type="xsd:string" name="OverReceiptActionCode"/>
+              <xsd:element type="xsd:string" name="OverReceiptAction"/>
+              <xsd:element type="xsd:string" name="EarlyReceiptToleranceInDays"/>
+              <xsd:element type="xsd:string" name="LateReceiptToleranceInDays"/>
+              <xsd:element type="xsd:string" name="AllowSubstituteReceiptsCode"/>
+              <xsd:element type="xsd:string" name="AllowSubstituteReceipts"/>
+              <xsd:element type="xsd:string" name="AllowUnorderedReceiptsFlag"/>
+              <xsd:element type="xsd:string" name="ReceiptDateExceptionCode"/>
+              <xsd:element type="xsd:string" name="ReceiptDateException"/>
+              <xsd:element type="xsd:string" name="InvoiceCurrencyCode"/>
+              <xsd:element type="xsd:string" name="InvoiceCurrency"/>
+              <xsd:element type="xsd:string" name="InvoiceAmountLimit"/>
+              <xsd:element type="xsd:string" name="InvoiceMatchOptionCode"/>
+              <xsd:element type="xsd:string" name="InvoiceMatchOption"/>
+              <xsd:element type="xsd:string" name="MatchApprovalLevelCode"/>
+              <xsd:element type="xsd:string" name="MatchApprovalLevel"/>
+              <xsd:element type="xsd:string" name="QuantityTolerancesId"/>
+              <xsd:element type="xsd:string" name="QuantityTolerances"/>
+              <xsd:element type="xsd:string" name="AmountTolerancesId"/>
+              <xsd:element type="xsd:string" name="AmountTolerances"/>
+              <xsd:element type="xsd:string" name="InvoiceChannelCode"/>
+              <xsd:element type="xsd:string" name="InvoiceChannel"/>
+              <xsd:element type="xsd:string" name="PaymentCurrencyCode"/>
+              <xsd:element type="xsd:string" name="PaymentCurrency"/>
+              <xsd:element type="xsd:string" name="PaymentPriority"/>
+              <xsd:element type="xsd:string" name="PayGroupCode"/>
+              <xsd:element type="xsd:string" name="PayGroup"/>
+              <xsd:element type="xsd:string" name="HoldAllInvoicesFlag"/>
+              <xsd:element type="xsd:string" name="HoldUnmatchedInvoicesCode"/>
+              <xsd:element type="xsd:string" name="HoldUnmatchedInvoices"/>
+              <xsd:element type="xsd:string" name="HoldUnvalidatedInvoicesFlag"/>
+              <xsd:element type="xsd:string" name="PaymentHoldDate"/>
+              <xsd:element type="xsd:string" name="PaymentHoldReason"/>
+              <xsd:element type="xsd:string" name="PaymentTermsId"/>
+              <xsd:element type="xsd:string" name="PaymentTerms"/>
+              <xsd:element type="xsd:string" name="PaymentTermsDateBasisCode"/>
+              <xsd:element type="xsd:string" name="PaymentTermsDateBasis"/>
+              <xsd:element type="xsd:string" name="PayDateBasisCode"/>
+              <xsd:element type="xsd:string" name="PayDateBasis"/>
+              <xsd:element type="xsd:string" name="BankChargeDeductionTypeCode"/>
+              <xsd:element type="xsd:string" name="BankChargeDeductionType"/>
+              <xsd:element type="xsd:string" name="AlwaysTakeDiscountCode"/>
+              <xsd:element type="xsd:string" name="AlwaysTakeDiscount"/>
+              <xsd:element type="xsd:string" name="ExcludeFreightFromDiscountCode"/>
+              <xsd:element type="xsd:string" name="ExcludeFreightFromDiscount"/>
+              <xsd:element type="xsd:string" name="ExcludeTaxFromDiscountCode"/>
+              <xsd:element type="xsd:string" name="ExcludeTaxFromDiscount"/>
+              <xsd:element type="xsd:string" name="CreateInterestInvoicesCode"/>
+              <xsd:element type="xsd:string" name="CreateInterestInvoices"/>
+              <xsd:element type="xsd:dateTime" name="CreationDate"/>
+              <xsd:element type="xsd:string" name="CreatedBy"/>
+              <xsd:element type="xsd:dateTime" name="LastUpdateDate"/>
+              <xsd:element type="xsd:string" name="LastUpdatedBy"/>
+              <xsd:element type="xsd:string" name="OverrideB2BCommunicationforSpecialHandlingOrdersFlag"/>
+              <xsd:element name="links" maxOccurs="unbounded" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element type="xsd:string" name="rel"/>
+                    <xsd:element type="xsd:string" name="href"/>
+                    <xsd:element type="xsd:string" name="name"/>
+                    <xsd:element type="xsd:string" name="kind"/>
+                    <xsd:element name="properties" minOccurs="0">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element type="xsd:string" name="changeIndicator"/>
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element type="xsd:byte" name="count"/>
+        <xsd:element type="xsd:string" name="hasMore"/>
+        <xsd:element type="xsd:byte" name="limit"/>
+        <xsd:element type="xsd:byte" name="offset"/>
+        <xsd:element name="links">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element type="xsd:string" name="rel"/>
+              <xsd:element type="xsd:string" name="href"/>
+              <xsd:element type="xsd:string" name="name"/>
+              <xsd:element type="xsd:string" name="kind"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
+
+

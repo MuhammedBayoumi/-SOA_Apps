@@ -1,0 +1,167 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Mon Jan 27 23:36:41 EET 2025
+  Author:  abosa
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="FusionDataCollectionBPELProcess"
+               targetNamespace="http://xmlns.oracle.com/FusionOTMSynchrony/FusionOTMSynchrony/FusionDataCollectionBPELProcess"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/FusionOTMSynchrony/FusionOTMSynchrony/FusionDataCollectionBPELProcess"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:ns1="json"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:ess="http://xmlns.oracle.com/scheduler" xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap" xmlns:ns2="http://www.example.org"
+         xmlns:ns3="http://www.getCutomer.org" xmlns:ns4="http://www.Sites.org"
+         xmlns:ns5="http://xmlns.oracle.com/apps/otm/transmission/v6.4">
+  <import namespace="http://www.Sites.org" location="../Schemas/getSitesSchema.xsd"
+          importType="http://www.w3.org/2001/XMLSchema"/>
+  <import namespace="http://www.getCutomer.org" location="../Schemas/getCustomer.xsd"
+          importType="http://www.w3.org/2001/XMLSchema"/>
+  <import namespace="http://www.example.org" location="../Schemas/getAddress.xsd"
+          importType="http://www.w3.org/2001/XMLSchema"/>
+  <import namespace="http://www.example.org" location="../Schemas/PayloadSchema.xsd"
+          importType="http://www.w3.org/2001/XMLSchema"/>
+  <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/FusionOTMSynchrony/FusionOTMSynchrony/FusionDataCollectionBPELProcess" location="../WSDLs/FusionDataCollectionBPELProcess.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="fusiondatacollectionbpelprocess_client" partnerLinkType="client:FusionDataCollectionBPELProcess" myRole="FusionDataCollectionBPELProcessProvider"/>
+    <partnerLink name="getAddresses" bpelx:wadl="yes"/>
+    <partnerLink name="getCustomer" bpelx:wadl="yes"/>
+    <partnerLink name="getSites" bpelx:wadl="yes"/>
+    <partnerLink name="OTMSendTransmission" partnerLinkType="ns5:OTMSendTransmission"
+                 partnerRole="TransmissionPortType"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:FusionDataCollectionBPELProcessRequestMessage"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="client:FusionDataCollectionBPELProcessResponseMessage"/>
+    <variable name="supplierId" type="xsd:string"/>
+    <!--<variable name="xmlAddressOutput" element="ns2:items"/>-->
+    <variable name="getCustomer_output" element="ns3:CustomerResponse"/>
+    <variable name="getSite_output" element="ns4:SiteResponse"/>
+    <variable name="getSite_input" bpelx:json="null"/>
+    <variable name="getAddress_input" bpelx:json="null"/>
+    <variable name="getAddress_output" element="ns2:AddressResponse"/>
+    <variable name="getCustomer_input" bpelx:json="null"/>
+    <variable name="q_value" type="xsd:string"/>
+    <variable name="Invoke_sendTransmission_InputVariable" messageType="ns5:TransmissionRequest"/>
+    <variable name="Invoke_sendTransmission_OutputVariable" messageType="ns5:TransmissionResponse"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in FusionDataCollectionBPELProcess.wsdl) -->
+    <receive name="receiveInput" partnerLink="fusiondatacollectionbpelprocess_client" portType="client:FusionDataCollectionBPELProcess" operation="process" variable="inputVariable" createInstance="yes"/>
+    <assign name="assignSupplier">
+      <copy>
+        <from>$inputVariable.payload/client:input</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$supplierId</to>
+      </copy>
+    </assign>
+    <flow name="Flow1">
+      <sequence name="Sequence">
+        <invoke name="InvokGetAddress" inputVariable="getAddress_input"
+                outputVariable="getAddress_output" partnerLink="getAddresses"
+                bpelx:method="addressesMethod" bpelx:invokeAsDetail="no">
+          <bpelx:toProperties>
+            <bpelx:toProperty name="rest.template.suppliersId">$supplierId</bpelx:toProperty>
+          </bpelx:toProperties>
+        </invoke>
+      </sequence>
+      <sequence name="Sequence1">
+        <invoke name="InvokeGetSite" inputVariable="getSite_input"
+                outputVariable="getSite_output" partnerLink="getSites"
+                bpelx:method="siteMethod" bpelx:invokeAsDetail="no">
+          <bpelx:toProperties>
+            <bpelx:toProperty name="rest.template.supplierId">$supplierId</bpelx:toProperty>
+          </bpelx:toProperties>
+        </invoke>
+      </sequence>
+    </flow>
+    <assign name="AssignQ_Value">
+      <copy>
+        <from>encode-for-uri(concat('Supplier%3D',concat(translate($getAddress_output/ns2:items/ns2:AddressName, ' ', '%20'), '') ,''))</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$q_value</to>
+      </copy>
+    </assign>
+    <invoke name="InvokeGetCustomer" inputVariable="getCustomer_input" outputVariable="getCustomer_output"
+            partnerLink="getCustomer" bpelx:method="customerMethod" bpelx:invokeAsDetail="no">
+      <bpelx:toProperties>
+        <bpelx:toProperty name="rest.template.q">$q_value</bpelx:toProperty>
+        <bpelx:toProperty name="rest.template.onlyData">xp20:lower-case('true')</bpelx:toProperty>
+      </bpelx:toProperties>
+    </invoke>
+    <assign name="SendTransmission">
+      <bpelx:annotation>
+        <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+      </bpelx:annotation>
+      <copy>
+        <from>ora:doXSLTransformForDoc("../Transformations/FusionOTMSuncResponse.xsl", $getCustomer_output, "getAddress_output", $getAddress_output, "getSite_output", $getSite_output)</from>
+        <to variable="Invoke_sendTransmission_InputVariable" part="Transmission"/>
+      </copy>
+    </assign>
+    <invoke name="InvokeSendTransmission" bpelx:invokeAsDetail="no" partnerLink="OTMSendTransmission"
+            portType="ns5:TransmissionPortType" operation="sendTransmission"
+            inputVariable="Invoke_sendTransmission_InputVariable"
+            outputVariable="Invoke_sendTransmission_OutputVariable"/>
+    <assign name="AssignResponse">
+      <copy>
+        <from>$Invoke_sendTransmission_OutputVariable.TransmissionResponse/Status</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/client:Status</to>
+      </copy>
+      <copy>
+        <from>$Invoke_sendTransmission_OutputVariable.TransmissionResponse/ErrorCode</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/client:ErrorCode</to>
+      </copy>
+      <copy>
+        <from>$Invoke_sendTransmission_OutputVariable.TransmissionResponse/ErrorMessage</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/client:ErrorMessage</to>
+      </copy>
+    </assign>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="fusiondatacollectionbpelprocess_client" portType="client:FusionDataCollectionBPELProcess" operation="process" variable="outputVariable"/>
+  </sequence>
+</process>

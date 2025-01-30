@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="getCustomer">RestReference</doc>
+   <resources>
+      <resource path="/fscmRestApi/resources/11.13.18.05/suppliers?q={q}&amp;onlyData={onlyData}">
+         <method name="GET" soa:name="customerMethod">
+            <request>
+               <param name="q" style="template" type="xsd:string"/>
+               <param name="onlyData" style="template" type="xsd:string"/>
+            </request>
+            <response>
+               <representation mediaType="application/xml"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response/>
+         </method>
+      </resource>
+   </resources>
+</application>

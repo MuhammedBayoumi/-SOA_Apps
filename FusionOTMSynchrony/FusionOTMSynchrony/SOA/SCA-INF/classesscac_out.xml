@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='process']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='sequence'][@name='main']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='assign'][@name='AssignQ_Value']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='copy']/*[namespace-uri()='http://docs.oasis-open.org/wsbpel/2.0/process/executable'][local-name()='from']</loc>
+      <line>126</line>
+      <col/>
+      <file>BPEL/FusionDataCollectionBPELProcess.bpel</file>
+      <name>BPEL/FusionDataCollectionBPELProcess.bpel</name>
+      <fix>Add function definition for this function "encode-for-uri" to the validator</fix>
+      <msg>Unknown function "encode-for-uri" used in &lt;bpel:from></msg>
+   </Fault>
+</Faults>

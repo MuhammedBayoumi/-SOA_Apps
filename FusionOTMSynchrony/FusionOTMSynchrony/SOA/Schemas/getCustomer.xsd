@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.getCutomer.org"
+            targetNamespace="http://www.getCutomer.org" elementFormDefault="qualified"
+            xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" nxsd:version="JSON" nxsd:encoding="UTF-8">
+  <xsd:element name="CustomerResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="items">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element type="xsd:long" name="SupplierId"/>
+              <xsd:element type="xsd:long" name="SupplierPartyId"/>
+              <xsd:element type="xsd:string" name="Supplier"/>
+              <xsd:element type="xsd:short" name="SupplierNumber"/>
+              <xsd:element type="xsd:string" name="AlternateName"/>
+              <xsd:element type="xsd:string" name="TaxOrganizationTypeCode"/>
+              <xsd:element type="xsd:string" name="TaxOrganizationType"/>
+              <xsd:element type="xsd:string" name="SupplierTypeCode"/>
+              <xsd:element type="xsd:string" name="SupplierType"/>
+              <xsd:element type="xsd:string" name="InactiveDate"/>
+              <xsd:element type="xsd:string" name="Status"/>
+              <xsd:element type="xsd:string" name="BusinessRelationshipCode"/>
+              <xsd:element type="xsd:string" name="BusinessRelationship"/>
+              <xsd:element type="xsd:string" name="ParentSupplierId"/>
+              <xsd:element type="xsd:string" name="ParentSupplier"/>
+              <xsd:element type="xsd:string" name="ParentSupplierNumber"/>
+              <xsd:element type="xsd:dateTime" name="CreationDate"/>
+              <xsd:element type="xsd:string" name="CreatedBy"/>
+              <xsd:element type="xsd:dateTime" name="LastUpdateDate"/>
+              <xsd:element type="xsd:string" name="LastUpdatedBy"/>
+              <xsd:element type="xsd:string" name="CreationSourceCode"/>
+              <xsd:element type="xsd:string" name="CreationSource"/>
+              <xsd:element type="xsd:string" name="DataFoxScore"/>
+              <xsd:element type="xsd:string" name="DataFoxScoringCriteria"/>
+              <xsd:element type="xsd:string" name="Alias"/>
+              <xsd:element type="xsd:string" name="DUNSNumber"/>
+              <xsd:element type="xsd:string" name="OneTimeSupplierFlag"/>
+              <xsd:element type="xsd:int" name="RegistryId"/>
+              <xsd:element type="xsd:string" name="CustomerNumber"/>
+              <xsd:element type="xsd:string" name="StandardIndustryClass"/>
+              <xsd:element type="xsd:string" name="IndustryCategory"/>
+              <xsd:element type="xsd:string" name="IndustrySubcategory"/>
+              <xsd:element type="xsd:string" name="NationalInsuranceNumber"/>
+              <xsd:element type="xsd:string" name="NationalInsuranceNumberExistsFlag"/>
+              <xsd:element type="xsd:string" name="CorporateWebsite"/>
+              <xsd:element type="xsd:string" name="YearEstablished"/>
+              <xsd:element type="xsd:string" name="MissionStatement"/>
+              <xsd:element type="xsd:string" name="YearIncorporated"/>
+              <xsd:element type="xsd:string" name="ChiefExecutiveTitle"/>
+              <xsd:element type="xsd:string" name="ChiefExecutiveName"/>
+              <xsd:element type="xsd:string" name="PrincipalTitle"/>
+              <xsd:element type="xsd:string" name="PrincipalName"/>
+              <xsd:element type="xsd:string" name="FiscalYearEndMonthCode"/>
+              <xsd:element type="xsd:string" name="FiscalYearEndMonth"/>
+              <xsd:element type="xsd:string" name="CurrentFiscalYearPotentialRevenue"/>
+              <xsd:element type="xsd:string" name="PreferredFunctionalCurrencyCode"/>
+              <xsd:element type="xsd:string" name="PreferredFunctionalCurrency"/>
+              <xsd:element type="xsd:string" name="TaxRegistrationCountryCode"/>
+              <xsd:element type="xsd:string" name="TaxRegistrationCountry"/>
+              <xsd:element type="xsd:long" name="TaxRegistrationNumber"/>
+              <xsd:element type="xsd:string" name="TaxpayerCountryCode"/>
+              <xsd:element type="xsd:string" name="TaxpayerCountry"/>
+              <xsd:element type="xsd:string" name="TaxpayerId"/>
+              <xsd:element type="xsd:string" name="TaxpayerIdExistsFlag"/>
+              <xsd:element type="xsd:string" name="FederalReportableFlag"/>
+              <xsd:element type="xsd:string" name="FederalIncomeTaxTypeCode"/>
+              <xsd:element type="xsd:string" name="FederalIncomeTaxType"/>
+              <xsd:element type="xsd:string" name="StateReportableFlag"/>
+              <xsd:element type="xsd:string" name="TaxReportingName"/>
+              <xsd:element type="xsd:string" name="NameControl"/>
+              <xsd:element type="xsd:string" name="VerificationDate"/>
+              <xsd:element type="xsd:string" name="UseWithholdingTaxFlag"/>
+              <xsd:element type="xsd:string" name="WithholdingTaxGroupId"/>
+              <xsd:element type="xsd:string" name="WithholdingTaxGroup"/>
+              <xsd:element type="xsd:string" name="BusinessClassificationNotApplicableFlag"/>
+              <xsd:element type="xsd:string" name="DataFoxId"/>
+              <xsd:element type="xsd:string" name="DataFoxCompanyName"/>
+              <xsd:element type="xsd:string" name="DataFoxLegalName"/>
+              <xsd:element type="xsd:string" name="DataFoxCompanyPrimaryURL"/>
+              <xsd:element type="xsd:string" name="DataFoxNAICSCode"/>
+              <xsd:element type="xsd:string" name="DataFoxCountry"/>
+              <xsd:element type="xsd:string" name="DataFoxEIN"/>
+              <xsd:element type="xsd:string" name="DataFoxLastSyncDate"/>
+              <xsd:element type="xsd:string" name="OBNEnabledFlag"/>
+              <xsd:element type="xsd:string" name="OnOFACListFlag"/>
+              <xsd:element type="xsd:string" name="OFACSources"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element type="xsd:byte" name="count"/>
+        <xsd:element type="xsd:string" name="hasMore"/>
+        <xsd:element type="xsd:byte" name="limit"/>
+        <xsd:element type="xsd:byte" name="offset"/>
+        <xsd:element name="links">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element type="xsd:string" name="rel"/>
+              <xsd:element type="xsd:string" name="href"/>
+              <xsd:element type="xsd:string" name="name"/>
+              <xsd:element type="xsd:string" name="kind"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

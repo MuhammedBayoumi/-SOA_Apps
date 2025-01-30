@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="TransmissionService" targetNamespace="http://xmlns.oracle.com/apps/otm/transmission/v6.4"
+             xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.oracle.com/apps/otm/transmission/v6.4"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  
+  <types>
+    <xsd:schema targetNamespace="http://xmlns.oracle.com/apps/otm/transmission/v6.4">
+      <!-- Transmission Request Schema -->
+      <xsd:element name="Transmission">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="TransmissionHeader" minOccurs="1" maxOccurs="1">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <!-- Define elements within TransmissionHeader -->
+                  <xsd:element name="TransactionCode" type="xsd:string"/>
+                  <xsd:element name="LocationGid" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="DomainName" type="xsd:string"/>
+                        <xsd:element name="Xid" type="xsd:string"/>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="TransmissionBody">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="GLogXMLElement">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="Location">
+                          <xsd:complexType mixed="true">
+                            <xsd:sequence>
+                              <xsd:element type="xsd:string" name="TransactionCode"/>
+                              <xsd:element name="LocationGid">
+                                <xsd:complexType>
+                                  <xsd:sequence>
+                                    <xsd:element name="Gid">
+                                      <xsd:complexType mixed="true">
+                                        <xsd:sequence>
+                                          <xsd:element type="xsd:string" name="DomainName"/>
+                                          <xsd:element type="xsd:string" name="Xid"/>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element type="xsd:string" name="LocationName"/>
+                              <xsd:element type="xsd:string" name="Description"/>
+                              <xsd:element name="Address">
+                                <xsd:complexType mixed="true">
+                                  <xsd:sequence>
+                                    <xsd:element name="AddressLines">
+                                      <xsd:complexType mixed="true">
+                                        <xsd:sequence>
+                                          <xsd:element type="xsd:byte" name="SequenceNumber"/>
+                                          <xsd:element type="xsd:string" name="AddressLine"/>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element type="xsd:string" name="City"/>
+                                    <xsd:element name="CountryCode3Gid">
+                                      <xsd:complexType>
+                                        <xsd:sequence>
+                                          <xsd:element name="Gid">
+                                            <xsd:complexType mixed="true">
+                                              <xsd:sequence>
+                                                <xsd:element type="xsd:string" name="Xid"/>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element name="CountryCode">
+                                      <xsd:complexType mixed="true">
+                                        <xsd:sequence>
+                                          <xsd:element name="CountryCode3Gid">
+                                            <xsd:complexType>
+                                              <xsd:sequence>
+                                                <xsd:element name="Gid">
+                                                  <xsd:complexType mixed="true">
+                                                    <xsd:sequence>
+                                                      <xsd:element type="xsd:string" name="Xid"/>
+                                                    </xsd:sequence>
+                                                  </xsd:complexType>
+                                                </xsd:element>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element type="xsd:string" name="CountryCode2"/>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element name="TimeZoneGid">
+                                      <xsd:complexType>
+                                        <xsd:sequence>
+                                          <xsd:element name="Gid">
+                                            <xsd:complexType mixed="true">
+                                              <xsd:sequence>
+                                                <xsd:element type="xsd:string" name="Xid"/>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element type="xsd:float" name="Latitude"/>
+                                    <xsd:element type="xsd:float" name="Longitude"/>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="LocationRefnum" maxOccurs="unbounded" minOccurs="0">
+                                <xsd:complexType mixed="true">
+                                  <xsd:sequence>
+                                    <xsd:element name="LocationRefnumQualifierGid">
+                                      <xsd:complexType>
+                                        <xsd:sequence>
+                                          <xsd:element name="Gid">
+                                            <xsd:complexType mixed="true">
+                                              <xsd:sequence>
+                                                <xsd:element type="xsd:string" name="DomainName"/>
+                                                <xsd:element type="xsd:string" name="Xid"/>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element type="xsd:string" name="LocationRefnumValue"/>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="Contact">
+                                <xsd:complexType mixed="true">
+                                  <xsd:sequence>
+                                    <xsd:element name="ContactGid">
+                                      <xsd:complexType>
+                                        <xsd:sequence>
+                                          <xsd:element name="Gid">
+                                            <xsd:complexType mixed="true">
+                                              <xsd:sequence>
+                                                <xsd:element type="xsd:string" name="DomainName"/>
+                                                <xsd:element type="xsd:string" name="Xid"/>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element type="xsd:string" name="TransactionCode"/>
+                                    <xsd:element name="CommunicationMethod">
+                                      <xsd:complexType mixed="true">
+                                        <xsd:sequence>
+                                          <xsd:element type="xsd:byte" name="ComMethodRank"/>
+                                          <xsd:element name="ComMethodGid">
+                                            <xsd:complexType>
+                                              <xsd:sequence>
+                                                <xsd:element name="Gid">
+                                                  <xsd:complexType mixed="true">
+                                                    <xsd:sequence>
+                                                      <xsd:element type="xsd:string" name="Xid"/>
+                                                    </xsd:sequence>
+                                                  </xsd:complexType>
+                                                </xsd:element>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element name="LocationGid">
+                                      <xsd:complexType>
+                                        <xsd:sequence>
+                                          <xsd:element name="Gid">
+                                            <xsd:complexType mixed="true">
+                                              <xsd:sequence>
+                                                <xsd:element type="xsd:string" name="DomainName"/>
+                                                <xsd:element type="xsd:string" name="Xid"/>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="LocationRole">
+                                <xsd:complexType>
+                                  <xsd:sequence>
+                                    <xsd:element name="LocationRoleGid">
+                                      <xsd:complexType>
+                                        <xsd:sequence>
+                                          <xsd:element name="Gid">
+                                            <xsd:complexType mixed="true">
+                                              <xsd:sequence>
+                                                <xsd:element type="xsd:string" name="DomainName"/>
+                                                <xsd:element type="xsd:string" name="Xid"/>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="Corporation">
+                                <xsd:complexType mixed="true">
+                                  <xsd:sequence>
+                                    <xsd:element name="CorporationGid">
+                                      <xsd:complexType>
+                                        <xsd:sequence>
+                                          <xsd:element name="Gid">
+                                            <xsd:complexType mixed="true">
+                                              <xsd:sequence>
+                                                <xsd:element type="xsd:string" name="DomainName"/>
+                                                <xsd:element type="xsd:string" name="Xid"/>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element type="xsd:string" name="TransactionCode"/>
+                                    <xsd:element type="xsd:string" name="CorporationName"/>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element type="xsd:byte" name="PrimaryAddressLineSeq"/>
+                              <xsd:element type="xsd:string" name="IsActive"/>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <!-- TransmissionResponse -->
+      <xsd:element name="TransmissionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Status" type="xsd:string"/>
+            <xsd:element name="ErrorCode" type="xsd:string"/>
+            <xsd:element name="ErrorMessage" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  
+  <!-- Message Definitions -->
+  <message name="TransmissionRequest">
+    <part name="Transmission" element="tns:Transmission"/>
+  </message>
+  <message name="TransmissionResponse">
+    <part name="TransmissionResponse" element="tns:TransmissionResponse"/>
+  </message>
+
+  <!-- PortType (Operations) -->
+  <portType name="TransmissionPortType">
+    <operation name="sendTransmission">
+      <input message="tns:TransmissionRequest"/>
+      <output message="tns:TransmissionResponse"/>
+    </operation>
+  </portType>
+
+  <!-- Binding -->
+  <binding name="TransmissionBinding" type="tns:TransmissionPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="sendTransmission">
+      <soap:operation soapAction="urn:sendTransmission"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+
+  <!-- Service Definition -->
+  <service name="TransmissionService">
+    <port name="TransmissionPort" binding="tns:TransmissionBinding">
+      <soap:address location="http://localhost:8088/mockservice/Transmission"/>
+    </port>
+  </service>
+
+</definitions>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.example.org"
+            targetNamespace="http://www.example.org" elementFormDefault="qualified">
+  <xsd:element name="items">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Building"/>
+        <xsd:element name="CreationDate" type="xsd:dateTime"/>
+        <xsd:element name="FloorNumber"/>
+        <xsd:element name="FaxAreaCode"/>
+        <xsd:element name="Email"/>
+        <xsd:element name="PostalCode" type="xsd:integer"/>
+        <xsd:element name="FaxCountryCode"/>
+        <xsd:element name="SupplierAddressId" type="xsd:integer"/>
+        <xsd:element name="GlobalLocationNumber"/>
+        <xsd:element name="PostalCodeExtension"/>
+        <xsd:element name="County"/>
+        <xsd:element name="PhoneCountryCode"/>
+        <xsd:element name="PhoneAreaCode"/>
+        <xsd:element name="LanguageCode"/>
+        <xsd:element name="PhoneticAddress"/>
+        <xsd:element name="Language"/>
+        <xsd:element name="FaxNumber"/>
+        <xsd:element name="CountryCode" type="xsd:string"/>
+        <xsd:element name="InactiveDate" type="xsd:date"/>
+        <xsd:element name="Status" type="xsd:string"/>
+        <xsd:element name="LastUpdatedBy" type="xsd:string"/>
+        <xsd:element name="CreatedBy" type="xsd:string"/>
+        <xsd:element name="Addressee"/>
+        <xsd:element name="City" type="xsd:string"/>
+        <xsd:element name="Province"/>
+        <xsd:element name="AddressPurposeRemitToFlag" type="xsd:string"/>
+        <xsd:element name="PhoneExtension"/>
+        <xsd:element name="AddressName" type="xsd:string"/>
+        <xsd:element name="AddressLine3"/>
+        <xsd:element name="AdditionalAddressAttribute4"/>
+        <xsd:element name="AddressLine2"/>
+        <xsd:element name="AdditionalAddressAttribute3"/>
+        <xsd:element name="AddressLine1" type="xsd:string"/>
+        <xsd:element name="AdditionalAddressAttribute5"/>
+        <xsd:element name="State"/>
+        <xsd:element name="AdditionalAddressAttribute2"/>
+        <xsd:element name="AddressLine4"/>
+        <xsd:element name="AdditionalAddressAttribute1"/>
+        <xsd:element name="Country" type="xsd:string"/>
+        <xsd:element name="PhoneNumber"/>
+        <xsd:element name="AddressPurposeOrderingFlag" type="xsd:string"/>
+        <xsd:element name="AddressPurposeRFQOrBiddingFlag" type="xsd:string"/>
+        <xsd:element name="LastUpdateDate" type="xsd:dateTime"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  
+</xsd:schema>

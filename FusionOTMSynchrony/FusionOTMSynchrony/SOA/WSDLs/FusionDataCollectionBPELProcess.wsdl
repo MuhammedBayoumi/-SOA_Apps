@@ -1,0 +1,60 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="FusionDataCollectionBPELProcess"
+     targetNamespace="http://xmlns.oracle.com/FusionOTMSynchrony/FusionOTMSynchrony/FusionDataCollectionBPELProcess"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:client="http://xmlns.oracle.com/FusionOTMSynchrony/FusionOTMSynchrony/FusionDataCollectionBPELProcess"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:ns1="http://www.example.org"
+     xmlns:ns2="http://www.getCutomer.org"
+     xmlns:ns3="http://www.Sites.org"
+    >
+    <plnk:partnerLinkType name="FusionDataCollectionBPELProcess">
+        <plnk:role name="FusionDataCollectionBPELProcessProvider" portType="client:FusionDataCollectionBPELProcess"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/FusionOTMSynchrony/FusionOTMSynchrony/FusionDataCollectionBPELProcess"
+             xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns1="http://www.example.org"
+             xmlns:ns2="http://www.getCutomer.org" xmlns:ns3="http://www.Sites.org">
+            <import namespace="http://xmlns.oracle.com/FusionOTMSynchrony/FusionOTMSynchrony/FusionDataCollectionBPELProcess"
+                 schemaLocation="../Schemas/FusionDataCollectionBPELProcess.xsd"/>
+        </schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/FusionOTMSynchrony/FusionOTMSynchrony/FusionDataCollectionBPELProcess"
+             xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns1="http://www.example.org"
+             xmlns:ns2="http://www.getCutomer.org" xmlns:ns3="http://www.Sites.org">
+            <xsd:import namespace="http://www.example.org" schemaLocation="../Schemas/PayloadSchema.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/FusionOTMSynchrony/FusionOTMSynchrony/FusionDataCollectionBPELProcess"
+             xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns1="http://www.example.org"
+             xmlns:ns2="http://www.getCutomer.org" xmlns:ns3="http://www.Sites.org">
+            <xsd:import namespace="http://www.example.org" schemaLocation="../Schemas/getAddress.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/FusionOTMSynchrony/FusionOTMSynchrony/FusionDataCollectionBPELProcess"
+             xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns1="http://www.example.org"
+             xmlns:ns2="http://www.getCutomer.org" xmlns:ns3="http://www.Sites.org">
+            <xsd:import namespace="http://www.getCutomer.org" schemaLocation="../Schemas/getCustomer.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/FusionOTMSynchrony/FusionOTMSynchrony/FusionDataCollectionBPELProcess"
+             xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns1="http://www.example.org"
+             xmlns:ns2="http://www.getCutomer.org" xmlns:ns3="http://www.Sites.org">
+            <xsd:import namespace="http://www.Sites.org" schemaLocation="../Schemas/getSitesSchema.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="FusionDataCollectionBPELProcessRequestMessage">
+        <wsdl:part name="payload" element="client:process"/>
+    </wsdl:message>
+    <wsdl:message name="FusionDataCollectionBPELProcessResponseMessage">
+        <wsdl:part name="payload" element="client:processResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="FusionDataCollectionBPELProcess">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:FusionDataCollectionBPELProcessRequestMessage"/>
+            <wsdl:output message="client:FusionDataCollectionBPELProcessResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
