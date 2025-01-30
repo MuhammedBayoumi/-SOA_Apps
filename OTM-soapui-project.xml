@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="fc474136-ac44-4e6d-a82e-1830c82ebeab" activeEnvironment="Default" name="OTM" resourceRoot="" soapui-version="5.8.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="73d59adc-1c80-43c0-a8b0-43a415e20937" wsaVersion="NONE" name="TransmissionBinding" type="wsdl" bindingName="{http://xmlns.oracle.com/apps/otm/transmission/v6.4}TransmissionBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/JDeveloper/mywork/FusionOTMSynchrony/FusionOTMSynchrony/SOA/WSDLs/OTM.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\JDeveloper\mywork\FusionOTMSynchrony\FusionOTMSynchrony\SOA\WSDLs\OTM.wsdl"><con:part><con:url>file:\C:\JDeveloper\mywork\FusionOTMSynchrony\FusionOTMSynchrony\SOA\WSDLs\OTM.wsdl</con:url><con:content><![CDATA[<definitions name="TransmissionService" targetNamespace="http://xmlns.oracle.com/apps/otm/transmission/v6.4" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.oracle.com/apps/otm/transmission/v6.4" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <types>
+    <xsd:schema targetNamespace="http://xmlns.oracle.com/apps/otm/transmission/v6.4">
+      <!--Transmission Request Schema-->
+      <xsd:element name="Transmission">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="TransmissionHeader" minOccurs="1" maxOccurs="1">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <!--Define elements within TransmissionHeader-->
+                  <xsd:element name="TransactionCode" type="xsd:string"/>
+                  <xsd:element name="LocationGid" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="DomainName" type="xsd:string"/>
+                        <xsd:element name="Xid" type="xsd:string"/>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="TransmissionBody">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="GLogXMLElement">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="Location">
+                          <xsd:complexType mixed="true">
+                            <xsd:sequence>
+                              <xsd:element type="xsd:string" name="TransactionCode"/>
+                              <xsd:element name="LocationGid">
+                                <xsd:complexType>
+                                  <xsd:sequence>
+                                    <xsd:element name="Gid">
+                                      <xsd:complexType mixed="true">
+                                        <xsd:sequence>
+                                          <xsd:element type="xsd:string" name="DomainName"/>
+                                          <xsd:element type="xsd:string" name="Xid"/>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element type="xsd:string" name="LocationName"/>
+                              <xsd:element type="xsd:string" name="Description"/>
+                              <xsd:element name="Address">
+                                <xsd:complexType mixed="true">
+                                  <xsd:sequence>
+                                    <xsd:element name="AddressLines">
+                                      <xsd:complexType mixed="true">
+                                        <xsd:sequence>
+                                          <xsd:element type="xsd:byte" name="SequenceNumber"/>
+                                          <xsd:element type="xsd:string" name="AddressLine"/>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element type="xsd:string" name="City"/>
+                                    <xsd:element name="CountryCode3Gid">
+                                      <xsd:complexType>
+                                        <xsd:sequence>
+                                          <xsd:element name="Gid">
+                                            <xsd:complexType mixed="true">
+                                              <xsd:sequence>
+                                                <xsd:element type="xsd:string" name="Xid"/>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element name="CountryCode">
+                                      <xsd:complexType mixed="true">
+                                        <xsd:sequence>
+                                          <xsd:element name="CountryCode3Gid">
+                                            <xsd:complexType>
+                                              <xsd:sequence>
+                                                <xsd:element name="Gid">
+                                                  <xsd:complexType mixed="true">
+                                                    <xsd:sequence>
+                                                      <xsd:element type="xsd:string" name="Xid"/>
+                                                    </xsd:sequence>
+                                                  </xsd:complexType>
+                                                </xsd:element>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                          <xsd:element type="xsd:string" name="CountryCode2"/>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element name="TimeZoneGid">
+                                      <xsd:complexType>
+                                        <xsd:sequence>
+                                          <xsd:element name="Gid">
+                                            <xsd:complexType mixed="true">
+                                              <xsd:sequence>
+                                                <xsd:element type="xsd:string" name="Xid"/>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element type="xsd:float" name="Latitude"/>
+                                    <xsd:element type="xsd:float" name="Longitude"/>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="LocationRefnum" maxOccurs="unbounded" minOccurs="0">
+                                <xsd:complexType mixed="true">
+                                  <xsd:sequence>
+                                    <xsd:element name="LocationRefnumQualifierGid">
+                                      <xsd:complexType>
+                                        <xsd:sequence>
+                                          <xsd:element name="Gid">
+                                            <xsd:complexType mixed="true">
+                                              <xsd:sequence>
+                                                <xsd:element type="xsd:string" name="DomainName"/>
+                                                <xsd:element type="xsd:string" name="Xid"/>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element type="xsd:string" name="LocationRefnumValue"/>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="Contact">
+                                <xsd:complexType mixed="true">
+                                  <xsd:sequence>
+                                    <xsd:element name="ContactGid">
+                                      <xsd:complexType>
+                                        <xsd:sequence>
+                                          <xsd:element name="Gid">
+                                            <xsd:complexType mixed="true">
+                                              <xsd:sequence>
+                                                <xsd:element type="xsd:string" name="DomainName"/>
+                                                <xsd:element type="xsd:string" name="Xid"/>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element type="xsd:string" name="TransactionCode"/>
+                                    <xsd:element name="CommunicationMethod">
+                                      <xsd:complexType mixed="true">
+                                        <xsd:sequence>
+                                          <xsd:element type="xsd:byte" name="ComMethodRank"/>
+                                          <xsd:element name="ComMethodGid">
+                                            <xsd:complexType>
+                                              <xsd:sequence>
+                                                <xsd:element name="Gid">
+                                                  <xsd:complexType mixed="true">
+                                                    <xsd:sequence>
+                                                      <xsd:element type="xsd:string" name="Xid"/>
+                                                    </xsd:sequence>
+                                                  </xsd:complexType>
+                                                </xsd:element>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element name="LocationGid">
+                                      <xsd:complexType>
+                                        <xsd:sequence>
+                                          <xsd:element name="Gid">
+                                            <xsd:complexType mixed="true">
+                                              <xsd:sequence>
+                                                <xsd:element type="xsd:string" name="DomainName"/>
+                                                <xsd:element type="xsd:string" name="Xid"/>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="LocationRole">
+                                <xsd:complexType>
+                                  <xsd:sequence>
+                                    <xsd:element name="LocationRoleGid">
+                                      <xsd:complexType>
+                                        <xsd:sequence>
+                                          <xsd:element name="Gid">
+                                            <xsd:complexType mixed="true">
+                                              <xsd:sequence>
+                                                <xsd:element type="xsd:string" name="DomainName"/>
+                                                <xsd:element type="xsd:string" name="Xid"/>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="Corporation">
+                                <xsd:complexType mixed="true">
+                                  <xsd:sequence>
+                                    <xsd:element name="CorporationGid">
+                                      <xsd:complexType>
+                                        <xsd:sequence>
+                                          <xsd:element name="Gid">
+                                            <xsd:complexType mixed="true">
+                                              <xsd:sequence>
+                                                <xsd:element type="xsd:string" name="DomainName"/>
+                                                <xsd:element type="xsd:string" name="Xid"/>
+                                              </xsd:sequence>
+                                            </xsd:complexType>
+                                          </xsd:element>
+                                        </xsd:sequence>
+                                      </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element type="xsd:string" name="TransactionCode"/>
+                                    <xsd:element type="xsd:string" name="CorporationName"/>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element type="xsd:byte" name="PrimaryAddressLineSeq"/>
+                              <xsd:element type="xsd:string" name="IsActive"/>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <!--TransmissionResponse-->
+      <xsd:element name="TransmissionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Status" type="xsd:string"/>
+            <xsd:element name="ErrorCode" type="xsd:string"/>
+            <xsd:element name="ErrorMessage" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <!--Message Definitions-->
+  <message name="TransmissionRequest">
+    <part name="Transmission" element="tns:Transmission"/>
+  </message>
+  <message name="TransmissionResponse">
+    <part name="TransmissionResponse" element="tns:TransmissionResponse"/>
+  </message>
+  <!--PortType (Operations)-->
+  <portType name="TransmissionPortType">
+    <operation name="sendTransmission">
+      <input message="tns:TransmissionRequest"/>
+      <output message="tns:TransmissionResponse"/>
+    </operation>
+  </portType>
+  <!--Binding-->
+  <binding name="TransmissionBinding" type="tns:TransmissionPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="sendTransmission">
+      <soap:operation soapAction="urn:sendTransmission"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <!--Service Definition-->
+  <service name="TransmissionService">
+    <port name="TransmissionPort" binding="tns:TransmissionBinding">
+      <soap:address location="http://localhost:8080/mockservice/Transmission"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://MBayoumi:8088/mockservice/Transmission</con:endpoint><con:endpoint>http://localhost:8080/mockservice/Transmission</con:endpoint></con:endpoints><con:operation id="2d8ebfe7-9b01-40db-babd-32970bbe2ab4" isOneWay="false" action="urn:sendTransmission" name="sendTransmission" bindingOperationName="sendTransmission" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="54aa3b7e-b505-47f6-acfb-dae2f30bd2b9" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/mockservice/Transmission</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v6="http://xmlns.oracle.com/apps/otm/transmission/v6.4">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v6:Transmission>\r
+         <TransmissionHeader>\r
+            <TransactionCode>?</TransactionCode>\r
+            <!--1 or more repetitions:-->\r
+            <LocationGid>\r
+               <DomainName>?</DomainName>\r
+               <Xid>?</Xid>\r
+            </LocationGid>\r
+         </TransmissionHeader>\r
+         <TransmissionBody>\r
+            <GLogXMLElement>\r
+               <Location>\r
+                  e\r
+                  <TransactionCode>?</TransactionCode>\r
+                  gero\r
+                  <LocationGid>\r
+                     <Gid>\r
+                        cum\r
+                        <DomainName>?</DomainName>\r
+                        sonoras\r
+                        <Xid>?</Xid>\r
+                        aeoliam\r
+                     </Gid>\r
+                  </LocationGid>\r
+                  quae\r
+                  <LocationName>?</LocationName>\r
+                  ventos\r
+                  <Description>?</Description>\r
+                  verrantque\r
+                  <Address>\r
+                     temperat\r
+                     <AddressLines>\r
+                        per\r
+                        <SequenceNumber>?</SequenceNumber>\r
+                        turbine\r
+                        <AddressLine>?</AddressLine>\r
+                        circum\r
+                     </AddressLines>\r
+                     regemque\r
+                     <City>?</City>\r
+                     nimborum\r
+                     <CountryCode3Gid>\r
+                        <Gid>\r
+                           fremunt\r
+                           <Xid>?</Xid>\r
+                           foedere\r
+                        </Gid>\r
+                     </CountryCode3Gid>\r
+                     ferant\r
+                     <CountryCode>\r
+                        profundum\r
+                        <CountryCode3Gid>\r
+                           <Gid>\r
+                              sceptra\r
+                              <Xid>?</Xid>\r
+                              et\r
+                           </Gid>\r
+                        </CountryCode3Gid>\r
+                        turbine\r
+                        <CountryCode2>?</CountryCode2>\r
+                        iovis\r
+                     </CountryCode>\r
+                     flammato\r
+                     <TimeZoneGid>\r
+                        <Gid>\r
+                           speluncis\r
+                           <Xid>?</Xid>\r
+                           profundum\r
+                        </Gid>\r
+                     </TimeZoneGid>\r
+                     bella\r
+                     <Latitude>?</Latitude>\r
+                     nubibus\r
+                     <Longitude>?</Longitude>\r
+                     flammas\r
+                  </Address>\r
+                  ac\r
+                  <!--Zero or more repetitions:-->\r
+                  <LocationRefnum>\r
+                     hoc\r
+                     <LocationRefnumQualifierGid>\r
+                        <Gid>\r
+                           rapidum\r
+                           <DomainName>?</DomainName>\r
+                           ac\r
+                           <Xid>?</Xid>\r
+                           caelumque\r
+                        </Gid>\r
+                     </LocationRefnumQualifierGid>\r
+                     speluncis\r
+                     <LocationRefnumValue>?</LocationRefnumValue>\r
+                     circum\r
+                  </LocationRefnum>\r
+                  aris\r
+                  <Contact>\r
+                     coniunx\r
+                     <ContactGid>\r
+                        <Gid>\r
+                           praeterea\r
+                           <DomainName>?</DomainName>\r
+                           arce\r
+                           <Xid>?</Xid>\r
+                           claustra\r
+                        </Gid>\r
+                     </ContactGid>\r
+                     circum\r
+                     <TransactionCode>?</TransactionCode>\r
+                     imperio\r
+                     <CommunicationMethod>\r
+                        certo\r
+                        <ComMethodRank>?</ComMethodRank>\r
+                        quisquam\r
+                        <ComMethodGid>\r
+                           <Gid>\r
+                              et\r
+                              <Xid>?</Xid>\r
+                              ac\r
+                           </Gid>\r
+                        </ComMethodGid>\r
+                        feta\r
+                     </CommunicationMethod>\r
+                     ac\r
+                     <LocationGid>\r
+                        <Gid>\r
+                           sed\r
+                           <DomainName>?</DomainName>\r
+                           pectore\r
+                           <Xid>?</Xid>\r
+                           talia\r
+                        </Gid>\r
+                     </LocationGid>\r
+                     pectore\r
+                  </Contact>\r
+                  austris\r
+                  <LocationRole>\r
+                     <LocationRoleGid>\r
+                        <Gid>\r
+                           annos\r
+                           <DomainName>?</DomainName>\r
+                           sciret\r
+                           <Xid>?</Xid>\r
+                           certo\r
+                        </Gid>\r
+                     </LocationRoleGid>\r
+                  </LocationRole>\r
+                  dare\r
+                  <Corporation>\r
+                     rates\r
+                     <CorporationGid>\r
+                        <Gid>\r
+                           bella\r
+                           <DomainName>?</DomainName>\r
+                           volutans\r
+                           <Xid>?</Xid>\r
+                           dedit\r
+                        </Gid>\r
+                     </CorporationGid>\r
+                     faciat\r
+                     <TransactionCode>?</TransactionCode>\r
+                     magno\r
+                     <CorporationName>?</CorporationName>\r
+                     et\r
+                  </Corporation>\r
+                  ac\r
+                  <PrimaryAddressLineSeq>?</PrimaryAddressLineSeq>\r
+                  et\r
+                  <IsActive>?</IsActive>\r
+                  regemque\r
+               </Location>\r
+            </GLogXMLElement>\r
+         </TransmissionBody>\r
+      </v6:Transmission>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:sendTransmission"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="84c457d7-1e1d-44b1-8841-5b010fbaa1e7" port="8088" path="/mockservice/Transmission" host="MBayoumi" name="TransmissionBinding MockService" bindToHostOnly="false" docroot=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="sendTransmission" id="b4e7f93f-9a3f-4fab-8c4d-09c3b22f458d" interface="TransmissionBinding" operation="sendTransmission"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="b7e81120-cee7-40a4-a372-75e4b851a3cf" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v6="http://xmlns.oracle.com/apps/otm/transmission/v6.4">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v6:TransmissionResponse>
+         <Status>S</Status>
+         <ErrorCode>OK</ErrorCode>
+         <ErrorMessage>OK</ErrorMessage>
+      </v6:TransmissionResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:sendTransmission"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
